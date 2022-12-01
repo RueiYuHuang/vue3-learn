@@ -27,6 +27,8 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <style lang="scss" scoped>
 .nav {
+    box-sizing: border-box;
+    padding: 0 2rem;
     width: 100%;
     height: var(--header-height);
     background-color: var(--main-color);
