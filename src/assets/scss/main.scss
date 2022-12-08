@@ -1,5 +1,7 @@
-$main-color:b#d95f26;
 
+
+$main-color:b#d95f26;
+@import './reset.css';
 :root {
     --header-height: 7rem;
     --footer-height: 10rem;
@@ -36,6 +38,13 @@ ul {
 .container {
     max-width: 120rem;
     margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+    color: var(--font-color)
 }
 // :root {
 //     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
