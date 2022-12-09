@@ -4,7 +4,7 @@
 
 <template>
     <div class="container">
-        HOME
+        <h2>HOME</h2>
         <article class="article1">
             article1
         </article>
@@ -21,15 +21,15 @@
 .container {
     .article1 {
         min-height: 40rem;
-        border: 2px solid white;
+        border: 2px solid var(--second-color);
     }
     .article2 {
         min-height: 40rem;
-        border: 2px solid white;
+        border: 2px solid var(--second-color);
     }
     .article3 {
         min-height: 40rem;
-        border: 2px solid white;
+        border: 2px solid var(--second-color);
     }
 }
 </style>

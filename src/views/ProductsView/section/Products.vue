@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router';
 import { onMounted, reactive, watch } from "@vue/runtime-core";
 
 const { datas } = defineProps({datas:{}})
-console.log(datas);
+console.log("456:", datas);
 </script>
 
 <template>
@@ -13,9 +13,12 @@ console.log(datas);
                 <div class="card__img">
                     <img class="" src="" alt="">
                 </div>
-                <p>{{ data.name }}</p>
-                <p>price${{ data.price }}</p>
-                <RouterLink :to="{ path: '/products/detail', query: { pudid: data.id } }">DETAIL</RouterLink>
+                <div class="card__content">
+                    <p>class: {{data.class }}</p>
+                    <p>name: {{data.name }}</p>
+                    <p>${{ data.price }}</p>
+                    <RouterLink class="btn" :to="{ path: '/products/detail', query: { pudid: data.id } }">DETAIL</RouterLink>
+                </div>
             </div>
         </div>
     </div>
@@ -32,7 +35,7 @@ console.log(datas);
         width: 100%;
         aspect-ratio: 4 / 5;
         // height: 100%;
-        background-color: rgb(255, 255, 255);
+        background-color: var(--second-color);
         text-align: center;
         padding: 1rem;
         &__img {
@@ -41,6 +44,22 @@ console.log(datas);
             height: 50%;
             object-fit: contain;
             
+        }
+        &__content {
+            // background-color: aqua;
+            display: flex;
+            height: 50%;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            .btn {
+                box-sizing: border-box;
+                background-color: var(--button-color);
+                padding: .6rem;
+                width: 100%;
+
+            }
+
         }
     }
 }

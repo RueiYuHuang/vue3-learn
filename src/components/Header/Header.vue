@@ -1,13 +1,13 @@
 <script setup>
 import { ref } from '@vue/reactivity';
-import { watch } from '@vue/runtime-core';
+import { onMounted, watch } from '@vue/runtime-core';
 import { RouterLink, RouterView } from 'vue-router';
+import { changeColor } from '../../composables/useDarkModel';
 
-const checked = ref(false)
+var checked = ref(false)
 const toggleList = () => {
     checked.value = !checked.value
 }
-
 </script>
 
 <template>
@@ -29,7 +29,7 @@ const toggleList = () => {
                 </ul>
             </div>
             <div class="nav__btn">
-                <button class="switch">切換</button>
+                <button class="switch" @click="changeColor">深色主題</button>
                 <button class="member">會員</button>
             </div>
         </nav>
@@ -44,6 +44,7 @@ const toggleList = () => {
     width: 100%;
     height: var(--header-height);
     background-color: var(--main-color);
+    transition: var(--style-transition);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,7 +68,7 @@ const toggleList = () => {
                 display: block;
                 width: 100%;
                 height: 0.2rem;
-                background-color: rgb(0, 0, 0);
+                background-color: var(--main-font-color);
                 margin: 0.6rem;
             }
         }
@@ -98,7 +99,7 @@ const toggleList = () => {
                 transform-origin: top;
                 opacity: 0;
                 // display: none;
-                background-color: white;
+                background-color: var(--second-color);
                 width: 100vw;
                 text-align: center;
                 & > li {
