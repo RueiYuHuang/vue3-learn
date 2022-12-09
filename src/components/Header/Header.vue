@@ -2,7 +2,7 @@
 import { ref } from '@vue/reactivity';
 import { onMounted, watch } from '@vue/runtime-core';
 import { RouterLink, RouterView } from 'vue-router';
-import { changeColor } from '../../composables/useDarkModel';
+import { changeColor } from '../../composables/useDarkModel'; // 深色模式模組
 
 var checked = ref(false)
 const toggleList = () => {

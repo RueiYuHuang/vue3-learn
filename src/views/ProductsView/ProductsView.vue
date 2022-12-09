@@ -4,7 +4,7 @@ import { onMounted, reactive, ref, watch, watchEffect } from "@vue/runtime-core"
 import { RouterLink, RouterView, useRoute } from "vue-router";
 import { useFetchProduct } from '@/composables/useFetchProduct.js'
 
-const { originalData, fliterData, errorMessage, getData } = useFetchProduct();
+const { originalData, fliterData, errorMessage, getData } = useFetchProduct(); //讀取商品模組
 
 onMounted(() => {
     getData()
