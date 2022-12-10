@@ -1,20 +1,12 @@
 <script setup>
 import { storeToRefs } from 'pinia'
-import { useRoute } from "vue-router";
-import { useProductStore } from '@/stores/product.js'
-import { watch,onMounted } from "@vue/runtime-core";
+import { useProductStore } from '@/stores/useProductStore.js'
 
 const productStore = useProductStore()
 const { fetchDataDetail } = productStore
 const { dataDetail } = storeToRefs(productStore)
 
 fetchDataDetail()
-// const route = useRoute();
-// console.log("pudid:",route.query.pudid);
-// onMounted(()=>{
-//     getDataDetail(route)
-// })
-
 
 </script>
 
