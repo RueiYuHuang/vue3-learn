@@ -9,20 +9,20 @@
 
 ### 專案資料夾結構
 
-|-- assets
-|   |-- img
-|   |-- scss
-|-- components
-|-- composables
-|-- router
-|-- stores
-|-- views
-|   |-- viewPage
-|       |-- section
+|-- assets <br>
+|   |-- img <br>
+|   |-- scss <br>
+|-- components <br>
+|-- composables <br>
+|-- router <br>
+|-- stores <br>
+|-- views <br>
+|   |-- viewPage <br>
+|       |-- section <br>
 
-assets      img資料夾   使用到的圖片，scss資料夾 main.scss 為全域樣式，reset.css重置樣式。
-components  頁面上的使用到的組件。
-composables 可重複使用之函式/功能。
-router      index.js 不同頁面的切換路徑設定。        
-stores      使用pinia放置不同頁面之共享狀態，可使views頁面專注於畫面的呈現。
-views       各頁面的版面配置，section資料夾為該頁面下之部分頁面。
+assets      img資料夾   使用到的圖片，scss資料夾 main.scss 為全域樣式，reset.css重置樣式。 <br>
+components  頁面上的使用到的組件。 <br>
+composables 可重複使用之函式/功能。 <br>
+router      index.js 不同頁面的切換路徑設定。<br>        
+stores      使用pinia放置不同頁面之共享狀態，可使views頁面專注於畫面的呈現。<br>
+views       各頁面的版面配置，section資料夾為該頁面下之部分頁面。<br>
