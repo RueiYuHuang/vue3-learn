@@ -10,15 +10,15 @@
 ### 專案資料夾結構
 
 |-- assets <br>
-|   |-- img <br>
-|   |-- scss <br>
+| &ensp;   |-- img <br>
+| &ensp;   |-- scss <br>
 |-- components <br>
 |-- composables <br>
 |-- router <br>
 |-- stores <br>
 |-- views <br>
-|   |-- viewPage <br>
-|       |-- section <br>
+| &ensp;   |-- viewPage <br>
+| &ensp; &ensp;       |-- section <br>
 
 assets      img資料夾   使用到的圖片，scss資料夾 main.scss 為全域樣式，reset.css重置樣式。 <br>
 components  頁面上的使用到的組件。 <br>
