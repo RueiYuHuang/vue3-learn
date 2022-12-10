@@ -1,9 +1,16 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
+import { storeToRefs } from 'pinia'
+import { RouterLink, RouterView, useRoute } from 'vue-router';
 import { onMounted, reactive, watch } from "@vue/runtime-core";
 
-const { datas } = defineProps({datas:{}})
-console.log("456:", datas);
+import { useProductStore } from '@/stores/useProductStore.js'
+
+const productStore = useProductStore()
+const { datas } = storeToRefs(productStore)
+
+
+// const { datas } = defineProps({datas:{}})
+
 </script>
 
 <template>
@@ -14,7 +21,7 @@ console.log("456:", datas);
                     <img class="" src="" alt="">
                 </div>
                 <div class="card__content">
-                    <p>class: {{data.class }}</p>
+                    <p>id: {{data.id}} class: {{data.class}}</p>
                     <p>name: {{data.name }}</p>
                     <p>${{ data.price }}</p>
                     <RouterLink class="btn" :to="{ path: '/products/detail', query: { pudid: data.id } }">DETAIL</RouterLink>

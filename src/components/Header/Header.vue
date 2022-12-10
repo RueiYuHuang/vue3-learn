@@ -33,12 +33,18 @@ const toggleList = () => {
                 <button class="member">會員</button>
             </div>
         </nav>
+        <div class="space"></div>
     </header>
 </template>
 
 <style lang="scss" scoped>
-
+.space {
+    height: var(--header-height);
+}
 .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
     box-sizing: border-box;
     padding: 0 2rem;
     width: 100%;

@@ -2,28 +2,16 @@
 import axios from "axios";
 import { onMounted, reactive, ref, watch, watchEffect } from "@vue/runtime-core";
 import { RouterLink, RouterView, useRoute } from "vue-router";
-import { useFetchProduct } from '@/composables/useFetchProduct.js'
+import { storeToRefs } from 'pinia'
+// import { useFetchProduct } from '@/composables/useFetchProduct.js'
+import { useProductStore } from '@/stores/useProductStore.js'
 
-const { originalData, fliterData, errorMessage, getData } = useFetchProduct(); //讀取商品模組
+const productStore = useProductStore()
+const { fetchData } = productStore
+const { datas } = storeToRefs(productStore)
 
-onMounted(() => {
-    getData()
-});
+fetchData()
 
-//類別篩選功能
-const route = useRoute();
-watch(route, (newRoute) => {
-    //axios 依類別抓取資料 *這裡測試直接用原資料篩選
-    if(newRoute.query.class === undefined){
-        //沒有class表示全部商品
-        fliterData.value = originalData.value
-    }else{
-        //篩選商品
-        fliterData.value = originalData.value.filter((data) => {
-            return data.class === newRoute.query.class
-        })
-    } 
-});
 
 </script>
 
@@ -43,8 +31,8 @@ watch(route, (newRoute) => {
             </div>
             <div  class="products">
                 <!-- <div v-if="datas.length === 0">Loading</div> -->
-                <div v-if="fliterData.length !== 0" >
-                    <RouterView :datas="fliterData" />
+                <div v-if="datas.length !== 0" >
+                    <RouterView/>
                 </div>
             </div>
         </div>
@@ -71,6 +59,12 @@ watch(route, (newRoute) => {
 }
 @media screen and (max-width: 768px) {
     //md
+    .grid {
+        grid-template-columns: 10rem 1fr;
+        li {
+            font-size: 1.4rem;
+        }
+    }
     .grid-list {
         grid-template-columns: repeat(2, 1fr);
     }
