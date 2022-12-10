@@ -1,5 +1,7 @@
 ## 此專案用於學習VUE3
 
+[Firebase Hosting ](https://vue3-learn-d164d.web.app/)
+
 使用 VUE + Vite 做專案配置
 使用 Vue Router 做頁面的配置切換
 使用 Pinia 做跨組件/頁面共享狀態
