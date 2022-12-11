@@ -4,22 +4,25 @@ import { onMounted, watch } from '@vue/runtime-core';
 import { RouterLink, RouterView } from 'vue-router';
 import { changeColor } from '../../composables/useDarkModel'; // 深色模式
 import LogInSignUpVue from '../LogInSignUp/LogInSignUp.vue'; // 登入註冊元件
+import CartVue from '../Cart.vue';
 import { storeToRefs } from 'pinia'
 import { useHeaderStore } from '@/stores/useHeaderStore.js'
+import { useCartStore } from '@/stores/useCartStore.js'
 
 const headerStore = useHeaderStore()
 const { logInSignUpToggle } = headerStore
-const { toggle } = storeToRefs(headerStore)
+const { logInSignUpBoolean } = storeToRefs(headerStore)
+
+const cartStore = useCartStore()
+const { cartToggle } = cartStore
+const { cartBoolean } = storeToRefs(cartStore)
 
 var checked = ref(false)
 const toggleList = () => {
     checked.value = !checked.value
 }
 
-// var Toggle = ref(false)
-// const LogInSignUpToggle = () => {
-//     Toggle.value = !Toggle.value
-// }
+
 </script>
 
 <template>
@@ -43,11 +46,13 @@ const toggleList = () => {
             <div class="nav__btn">
                 <button class="switch" @click="changeColor">深色主題</button>
                 <button class="member" @click="logInSignUpToggle">會員</button>
+                <button class="member" @click="cartToggle">購物車</button>
             </div>
         </nav>
         <div class="space"></div>
     </header>
-    <LogInSignUpVue v-if="toggle === true"/>
+    <LogInSignUpVue v-if="logInSignUpBoolean === true"/>
+    <CartVue v-if="cartBoolean === true"/>
 </template>
 
 <style lang="scss" scoped>
@@ -93,6 +98,11 @@ const toggleList = () => {
             }
         }
         
+    }
+    &__btn {
+        button {
+            cursor: pointer;
+        }
     }
 }
 

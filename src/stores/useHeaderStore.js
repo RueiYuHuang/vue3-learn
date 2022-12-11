@@ -5,10 +5,10 @@ import { ref, watch, onMounted } from "@vue/runtime-core";
 
 export const useHeaderStore = defineStore( "headerStore", () => {
     
-    var toggle = ref(false)
+    var logInSignUpBoolean = ref(false)
     const logInSignUpToggle = () => {
-        toggle.value = !toggle.value
+        logInSignUpBoolean.value = !logInSignUpBoolean.value
     }
     
-    return { toggle, logInSignUpToggle }
+    return { logInSignUpBoolean, logInSignUpToggle }
 } )

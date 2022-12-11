@@ -64,6 +64,7 @@ const SignUpClick = () => {
             text-align: end;
             button {
                 font-size: 1.6rem;
+                cursor: pointer;
             }
         }
         &__btn {
@@ -73,6 +74,7 @@ const SignUpClick = () => {
             // padding: 1rem;
             button {
                 // background-color: var(--main-color);
+                cursor: pointer;
                 width: 100%;
                 padding: 1rem 0;
                 font-size: 1.6rem;
