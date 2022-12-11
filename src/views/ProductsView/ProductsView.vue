@@ -21,12 +21,12 @@ fetchData()
         <div class="grid">
             <div class="aside">
                 <ul>
-                    <li><RouterLink to="/products">ALL PRODUCTS</RouterLink></li>
-                    <li><RouterLink to="/products?class=1">CLASS1</RouterLink></li>
-                    <li><RouterLink to="/products?class=2">CLASS2</RouterLink></li>
-                    <li><RouterLink to="/products?class=3">CLASS3</RouterLink></li>
-                    <li><RouterLink to="/products?class=4">CLASS4</RouterLink></li>
-                    <li><RouterLink to="/products?class=5">CLASS5</RouterLink></li>
+                    <li><RouterLink class="link" to="/products">ALL PRODUCTS</RouterLink></li>
+                    <li><RouterLink class="link" to="/products?class=1">CLASS1</RouterLink></li>
+                    <li><RouterLink class="link" to="/products?class=2">CLASS2</RouterLink></li>
+                    <li><RouterLink class="link" to="/products?class=3">CLASS3</RouterLink></li>
+                    <li><RouterLink class="link" to="/products?class=4">CLASS4</RouterLink></li>
+                    <li><RouterLink class="link" to="/products?class=5">CLASS5</RouterLink></li>
                 </ul>
             </div>
             <div  class="products">

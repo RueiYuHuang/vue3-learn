@@ -24,7 +24,7 @@ const { datas } = storeToRefs(productStore)
                     <p>id: {{data.id}} class: {{data.class}}</p>
                     <p>name: {{data.name }}</p>
                     <p>${{ data.price }}</p>
-                    <RouterLink class="btn" :to="{ path: '/products/detail', query: { pudid: data.id } }">DETAIL</RouterLink>
+                    <RouterLink class="btn link" :to="{ path: '/products/detail', query: { pudid: data.id } }">DETAIL</RouterLink>
                 </div>
             </div>
         </div>
@@ -64,7 +64,6 @@ const { datas } = storeToRefs(productStore)
                 background-color: var(--button-color);
                 padding: .6rem;
                 width: 100%;
-
             }
 
         }

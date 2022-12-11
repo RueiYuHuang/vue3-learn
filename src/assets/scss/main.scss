@@ -4,23 +4,28 @@
 :root {
     --header-height: 7rem;
     --footer-height: 10rem;
-    //所有顏色皆使用 自訂變數
+    --products-gird: repeat(4, 1fr);
+    --style-transition: .5s;
+
+    // 預設主題顏色
     --main-color: rgb(248, 248, 248);
     --second-color: rgb(255, 255, 255);
     --main-font-color: rgb(59, 59, 59);
     --second-font-color: rgb(66, 66, 66);
-    --font-hover-color: rgb(69, 39, 238);
-    --button-color: rgb(126, 105, 244);
+    --font-hover-color: rgb(35, 116, 255);
+    --button-color: rgb(138, 183, 255);
     --background-color: rgb(196, 217, 255);
-    --products-gird: repeat(4, 1fr);
-    --style-transition: .5s;
+    --input-background-color: rgb(228, 228, 228);
+
+    // 深色主題顏色
     // --main-color: rgb(29, 37, 42);
     // --second-color: rgb(34, 34, 34);
     // --main-font-color: rgb(213, 213, 213);
     // --second-font-color: rgb(255, 255, 255);
-    // --font-hover-color: rgb(69, 39, 238);
-    // --button-color: rgb(51, 15, 255);
+    // --font-hover-color: rgb(0, 61, 135);
+    // --button-color: rgb(0, 13, 30);
     // --background-color: rgb(59, 59, 59);
+    // --input-background-color: rgb(59, 59, 59);
 }
 html {
     //設定為62.5% 1rem == 10px
@@ -71,11 +76,11 @@ a {
     text-decoration: none;
     transition: var(--style-transition)
 }
-a:visited {
+a:visited, .link {
     text-decoration: none;
     color: var(--main-font-color);
 }
-a:hover {
+a:hover, .link:hover {
     color: var(--font-hover-color);
     transition: 0s;
 }
