@@ -2,12 +2,24 @@
 import { ref } from '@vue/reactivity';
 import { onMounted, watch } from '@vue/runtime-core';
 import { RouterLink, RouterView } from 'vue-router';
-import { changeColor } from '../../composables/useDarkModel'; // 深色模式模組
+import { changeColor } from '../../composables/useDarkModel'; // 深色模式
+import LogInSignUpVue from '../LogInSignUp/LogInSignUp.vue'; // 登入註冊元件
+import { storeToRefs } from 'pinia'
+import { useHeaderStore } from '@/stores/useHeaderStore.js'
+
+const headerStore = useHeaderStore()
+const { logInSignUpToggle } = headerStore
+const { toggle } = storeToRefs(headerStore)
 
 var checked = ref(false)
 const toggleList = () => {
     checked.value = !checked.value
 }
+
+// var Toggle = ref(false)
+// const LogInSignUpToggle = () => {
+//     Toggle.value = !Toggle.value
+// }
 </script>
 
 <template>
@@ -30,11 +42,12 @@ const toggleList = () => {
             </div>
             <div class="nav__btn">
                 <button class="switch" @click="changeColor">深色主題</button>
-                <button class="member">會員</button>
+                <button class="member" @click="logInSignUpToggle">會員</button>
             </div>
         </nav>
         <div class="space"></div>
     </header>
+    <LogInSignUpVue v-if="toggle === true"/>
 </template>
 
 <style lang="scss" scoped>
@@ -54,6 +67,7 @@ const toggleList = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 998;
     &__menu {
         .checkbox {
             display: none;

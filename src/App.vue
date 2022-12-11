@@ -4,10 +4,12 @@
 import { RouterLink, RouterView } from 'vue-router';
 import HeaderVue from './components/Header/Header.vue';
 import FooterVue from './components/Footer.vue';
+// import LogInSignUpVue from './components/LogInSignUp/LogInSignUp.vue';
 </script>
 
 <template>
     <HeaderVue />
+    <!-- <LogInSignUpVue /> -->
     <div class="main">
       <RouterView />
     </div>
