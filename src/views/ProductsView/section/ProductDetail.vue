@@ -17,14 +17,26 @@ fetchDataDetail()
 
 <template>
     <div>
-        ProductDetail
-        <br/>
+        ProductDetail<br/>
         {{dataDetail}}
+        <p>商品ID:    {{dataDetail.id}}</p>
+        <p>商品類別: {{dataDetail.class}}</p>
+        <p>商品名稱: {{dataDetail.name}}</p>
+        <p>商品價格: {{dataDetail.price}}</p>
         <br/>
-        <button @click="pushProduct(dataDetail)">Add to Cart</button>
+        <button class="addbtn" @click="pushProduct(dataDetail)">ADD TO CART</button>
     </div>
 </template>
 
 <style lang="scss" scoped>
 
+.addbtn {
+    color: var(--main-font-color);
+    background-color: var(--button-color);
+    padding: 1rem;
+    cursor: pointer;
+    &:hover {
+        color: var(--font-hover-color);
+    }
+}
 </style>
