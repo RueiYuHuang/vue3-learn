@@ -14,7 +14,7 @@ const { logInSignUpToggle } = headerStore
 const { logInSignUpBoolean } = storeToRefs(headerStore)
 
 const cartStore = useCartStore()
-const { cartToggle } = cartStore
+const { cartToggle, getCart } = cartStore
 const { cartBoolean } = storeToRefs(cartStore)
 
 var checked = ref(false)
@@ -22,6 +22,7 @@ const toggleList = () => {
     checked.value = !checked.value
 }
 
+getCart() //讀取購物車
 
 </script>
 

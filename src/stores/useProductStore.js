@@ -62,6 +62,8 @@ export const useProductStore = defineStore( "productStore", () => {
                     dataDetail.value = originalData.value.filter((data) => {
                         return data.id === Number(route.query.pudid) 
                     })
+                    //取出陣列第0個
+                    dataDetail.value = dataDetail.value[0]
                 }
             } catch (err) {
                 errorMessage.value = err

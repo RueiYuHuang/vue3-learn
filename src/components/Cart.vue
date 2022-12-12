@@ -2,10 +2,17 @@
 import { RouterLink } from 'vue-router';
 import { defineStore, storeToRefs } from 'pinia'
 import { useCartStore } from '@/stores/useCartStore.js'
+import { computed } from 'vue-demi';
 
 const cartStore = useCartStore()
-const { cartToggle } = cartStore
-const { cartBoolean } = storeToRefs(cartStore)
+const { cartToggle, addProduct, subProduct, setProduct, deleteProduct } = cartStore
+const { cart, totalPrice } = storeToRefs(cartStore)
+
+// const totalPrice = computed(() => {
+//     return cart.value.reduce((prev, next) => {
+//         return prev + Number(next.price) * next.count
+//     },0)
+// }) 
 
 </script>
 
@@ -19,55 +26,30 @@ const { cartBoolean } = storeToRefs(cartStore)
             <thead>
                 <tr>
                     <th colspan="2">商品名稱</th>
+                    <th>售價</th>
                     <th>數量</th>
-                    <th>價格</th>
+                    <th>小計</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr v-if="cart.length === 0">購物車還沒有商品</tr>
+                <tr v-for="(data, index) in cart" :key="data.id">
                     <td><img src="" alt=""></td>
-                    <td>2</td>
+                    <td>{{data.name}}</td>
+                    <td>$ {{data.price}}</td>
                     <td>
-                        <button>-</button>
-                        3
-                        <button>+</button>
+                        <button @click="subProduct(cart[index])">-</button>
+                        {{data.count}}
+                        <button @click="addProduct(cart[index])">+</button>
                     </td>
-                    <td>$ 4</td>
-                </tr>
-                <tr>
-                    <td><img src="" alt=""></td>
-                    <td>2</td>
-                    <td>
-                        <button>-</button>
-                        3
-                        <button>+</button>
-                    </td>
-                    <td>$ 4</td>
-                </tr>
-                <tr>
-                    <td><img src="" alt=""></td>
-                    <td>2</td>
-                    <td>
-                        <button>-</button>
-                        3
-                        <button>+</button>
-                    </td>
-                    <td>$ 4</td>
-                </tr>
-                <tr>
-                    <td><img src="" alt=""></td>
-                    <td>2</td>
-                    <td>
-                        <button>-</button>
-                        3
-                        <button>+</button>
-                    </td>
-                    <td>$ 4</td>
+                    <td>$ {{Number(data.price) * data.count}}</td>
+                    <td><button class="del" @click="deleteProduct(cart[index])">刪除</button></td>
                 </tr>
                 <tr>    
-                    <td colspan="2"></td>
-                    <td>小計</td>
-                    <td>$ 16</td>
+                    <td colspan="3"></td>
+                    <td>總金額</td>
+                    <td>$ {{totalPrice}}</td>
                 </tr>
             </tbody>
         </table>
@@ -109,7 +91,7 @@ const { cartBoolean } = storeToRefs(cartStore)
         }
         th, td {
             width: 7rem;
-            padding: 1rem;
+            // padding: 1rem;
             font-size: 1.5rem;
             vertical-align: middle;  
         }
@@ -126,9 +108,7 @@ const { cartBoolean } = storeToRefs(cartStore)
             &:hover {
                 border-bottom: 1px solid var(--main-font-color);
                 box-sizing: border-box;
-            }
-            
-            
+            }  
         }
     }
     &__btn {
