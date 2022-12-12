@@ -39,8 +39,6 @@ export const useProductStore = defineStore( "productStore", () => {
                 errorMessage.value = err
             }
         }
-
-        
     }
 
     const fetchDataDetail = () => {

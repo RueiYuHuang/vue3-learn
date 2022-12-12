@@ -5,7 +5,7 @@ import { useCartStore } from '@/stores/useCartStore.js'
 import { computed } from 'vue-demi';
 
 const cartStore = useCartStore()
-const { cartToggle, addProduct, subProduct, setProduct, deleteProduct } = cartStore
+const { cartToggle, addProduct, subProduct, deleteProduct } = cartStore
 const { cart, totalPrice } = storeToRefs(cartStore)
 
 // const totalPrice = computed(() => {
