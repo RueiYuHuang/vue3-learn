@@ -2,12 +2,10 @@
 import { storeToRefs } from 'pinia'
 import { RouterLink, RouterView, useRoute } from 'vue-router';
 import { onMounted, reactive, watch } from "@vue/runtime-core";
-
 import { useProductStore } from '@/stores/useProductStore.js'
 
 const productStore = useProductStore()
-const { datas } = storeToRefs(productStore)
-
+const { datas, loadings } = storeToRefs(productStore)
 
 // const { datas } = defineProps({datas:{}})
 
@@ -15,7 +13,7 @@ const { datas } = storeToRefs(productStore)
 
 <template>
     <div>
-        <div class="grid-list">
+        <div v-if="!loadings.products" class="grid-list">
             <div class="card" v-for="(data, index) in datas" :key="data.id">
                 <div class="card__img">
                     <img class="" src="" alt="">
