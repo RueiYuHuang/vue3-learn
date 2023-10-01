@@ -42,6 +42,7 @@ getCart() //讀取購物車
                     <li><RouterLink class="link" @click="toggleList" to="/about">About</RouterLink></li>
                     <li><RouterLink class="link" @click="toggleList" to="/products">Products</RouterLink></li>
                     <li><RouterLink class="link" @click="toggleList" to="/contacts">Contacts</RouterLink></li>
+                    <li><RouterLink class="link" @click="toggleList" to="/test">Test</RouterLink></li>
                 </ul>
             </div>
             <div class="nav__btn">

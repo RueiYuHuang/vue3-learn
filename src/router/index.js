@@ -4,6 +4,8 @@ import AboutView from '@/views/AboutView/AboutView.vue'
 import ProductsView from '@/views/ProductsView/ProductsView.vue'
 import ContactsView from '@/views/ContactsView/ContactsView.vue'
 import MemberView from '@/views/MemberView/MemberView.vue'
+import TestView from '@/views/TestView/TestView.vue'
+
 
 const router = createRouter({
     history: createWebHistory(),
@@ -29,6 +31,7 @@ const router = createRouter({
         },
         { path: '/contacts', name:'contacts', component: ContactsView},
         { path: '/member', name:'member', component: MemberView},
+        { path: '/test', name:'test', component: TestView},
         { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/NotFound.vue') },
     ]
 })
