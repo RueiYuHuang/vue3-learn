@@ -15,9 +15,9 @@ export const useProductStore = defineStore( "productStore", () => {
     const fetchData = () => {
         const route = useRoute();
         
-        // onMounted(()=>{
-        //     fetchInit(route)
-        // })
+        onMounted(()=>{
+            fetchInit(route)
+        })
         
         watch(route, (newRoute) => {
             fetchInit(newRoute)
@@ -44,14 +44,14 @@ export const useProductStore = defineStore( "productStore", () => {
                         return data.class === route.query.class
                     })
                 }
-                await delay(10000)
+                // await delay(10000)
             } catch (err) {
                 errorMessage.value = err
             } finally {
                 endLoading('products')
             }
         }
-        fetchInit(route)
+        // fetchInit(route)
     }
 
     const fetchDataDetail = () => {
