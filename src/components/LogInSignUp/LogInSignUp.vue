@@ -18,7 +18,6 @@ const SignUpClick = () => {
     btnClick.value = false
 }
 
-
 </script>
 
 <template>
@@ -35,7 +34,9 @@ const SignUpClick = () => {
                 <LogInVue v-if="btnClick === true" />
                 <SignUpVue v-else />
             </div>
-            
+            <div class="card__btn">
+                <a href="https://accounts.google.com/o/oauth2/auth?client_id=68539763288-0l8v1ur2c32fmq9g2rvjqphodgsdv2gi.apps.googleusercontent.com&response_type=code&scope=openid%20email%20profile&redirect_uri=http://localhost:3000/member&state=this-should-be-some-generated-secret-">GOOGLE LOGIN</a>
+            </div>
         </div>
     </div>
 

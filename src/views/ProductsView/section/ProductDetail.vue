@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useProductStore } from '@/stores/useProductStore.js'
 import { useCartStore } from '@/stores/useCartStore.js'
-
+import { useRouter } from 'vue-router';
 const productStore = useProductStore()
 const { fetchDataDetail } = productStore
 const { dataDetail } = storeToRefs(productStore)
@@ -12,6 +12,12 @@ const { cartToggle, getCart, pushProduct } = cartStore
 const { cartBoolean } = storeToRefs(cartStore)
 
 fetchDataDetail()
+
+
+const router = useRouter()
+const test = () => {
+    router.push('/about')
+}
 
 </script>
 
@@ -25,6 +31,8 @@ fetchDataDetail()
         <p>商品價格: {{dataDetail.price}}</p>
         <br/>
         <button class="addbtn" @click="pushProduct(dataDetail)">ADD TO CART</button>
+        <button class="addbtn" @click="test">test</button>
+
     </div>
 </template>
 

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from '@vue/reactivity';
+import { inject, ref } from 'vue';
 import { onMounted, watch } from '@vue/runtime-core';
 import { RouterLink, RouterView } from 'vue-router';
 import { changeColor } from '../../composables/useDarkModel'; // 深色模式
@@ -23,7 +23,7 @@ const toggleList = () => {
 }
 
 getCart() //讀取購物車
-
+const {locale, setLocale} = inject('i18n')
 </script>
 
 <template>
@@ -38,17 +38,21 @@ getCart() //讀取購物車
                 </label>
                 <input class="checkbox" type="checkbox" :checked="checked"/>
                 <ul class="list">
-                    <li><RouterLink class="link" @click="toggleList" to="/">Home</RouterLink></li>
-                    <li><RouterLink class="link" @click="toggleList" to="/about">About</RouterLink></li>
-                    <li><RouterLink class="link" @click="toggleList" to="/products">Products</RouterLink></li>
-                    <li><RouterLink class="link" @click="toggleList" to="/contacts">Contacts</RouterLink></li>
-                    <li><RouterLink class="link" @click="toggleList" to="/test">Test</RouterLink></li>
+                    <li><RouterLink class="link" @click="toggleList" to="/">{{ $t('home') }}</RouterLink></li>
+                    <li><RouterLink class="link" @click="toggleList" to="/about">{{ $t('about') }}</RouterLink></li>
+                    <li><RouterLink class="link" @click="toggleList" to="/products">{{ $t('products') }}</RouterLink></li>
+                    <li><RouterLink class="link" @click="toggleList" to="/contacts">{{ $t('contacts') }}</RouterLink></li>
+                    <li><RouterLink class="link" @click="toggleList" to="/test">{{ $t('test') }}</RouterLink></li>
                 </ul>
             </div>
             <div class="nav__btn">
-                <button class="switch" @click="changeColor">深色主題</button>
-                <button class="member" @click="logInSignUpToggle">會員</button>
-                <button class="member" @click="cartToggle">購物車</button>
+                <select v-model="locale" @change="setLocale(locale)">
+                    <option value="zh_tw">{{ $t('laguage.zh_TW') }}</option>
+                    <option value="en_us">{{ $t('laguage.en_US') }}</option>
+                </select>
+                <button class="switch" @click="changeColor">{{ $t('dark') }}</button>
+                <button class="member" @click="logInSignUpToggle">{{ $t('member') }}</button>
+                <button class="member" @click="cartToggle">{{ $t('cart') }}</button>
             </div>
         </nav>
         <div class="space"></div>
